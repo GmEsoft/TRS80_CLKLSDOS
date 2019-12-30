@@ -5,7 +5,7 @@
 ; Compiling Date & Time	:
 ; Listing Date & Time	: ___ __, ____  -  __:__
 ; Author		: GmEsoft
-; Purpose		: Load Host Clock in Emulated System
+; Purpose		: Load Host Clock in Emulated System (US)
 ; System		: TRS-80 Model 4 + Keil Emulator Extensions
 ;			  TRSDOS 6.X
 ; Compiler		: MRAS
@@ -16,26 +16,26 @@ START:	LD	HL,TITLE
 	RST	28H
 	LD	HL,ENDTIM
 	IN	A,(68H)
-	CALL	WRITE2
+	CALL	WRITE2		;secs
 	IN	A,(69H)
-	CALL	WRITE2
+	CALL	WRITE2		;mins
 	IN	A,(6AH)
-	CALL	WRITE2
+	CALL	WRITE2		;hours
 	LD	HL,CMDTIM
 	LD	A,19H
-	RST	28H
+	RST	28H		;exec 'TIME ../../..'
 	LD	HL,ENDDAT
 	IN	A,(6BH)
 	AND	7
 	OR	80H
-	CALL	WRITE2
+	CALL	WRITE2		;year
 	IN	A,(6CH)
-	CALL	WRITE2
+	CALL	WRITE2		;month
 	IN	A,(6DH)
-	CALL	WRITE2
+	CALL	WRITE2		;day
 	LD	HL,CMDDAT
 	LD	A,18H
-	RST	28H
+	RST	28H		;exit with exec 'DATE ../../..'
 
 WRITE2:	LD	B,A
 	AND	0FH
