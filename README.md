@@ -27,4 +27,4 @@ That's it.  Enjoy !
 
 Best regards,
 
-Michel Bernard (michel.bernard@icloud.com)
+Michel Bernard (michel_bernard@icloud.com)
