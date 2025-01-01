@@ -33,7 +33,7 @@ START:
 	$BREAK
 	IN	A,(6DH)		;check month from emulator clock
 	DEC	A
-	CP	12
+	CP	12H
 	JR	NC,MANUAL	;jump to manual entry if no emulator clock
 ;	JR	MANUAL		;test
 
